@@ -3,8 +3,8 @@ LABEL author="Daniel Ciocirlan" email="daniel@rockthejvm.com"
 LABEL version="0.2"
 
 ENV DAEMON_RUN=true
-ENV SPARK_VERSION=3.1.2
-ENV HADOOP_VERSION=2.7
+ENV SPARK_VERSION=3.3.1
+ENV HADOOP_VERSION=3
 ENV SCALA_VERSION=2.12.10
 ENV SCALA_HOME=/usr/share/scala
 ENV SPARK_HOME=/spark
