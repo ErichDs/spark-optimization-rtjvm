@@ -99,6 +99,7 @@ object SimpleRDDJoins {
 
     val repartitionedScores = scores.partitionBy(partitionerForScores)
 
+    // do filtering first before the join
     val maxScores = repartitionedScores.reduceByKey(Math.max).filter(_._2 > 9.0)
     val finalScores = maxScores.join(candidates)
 
