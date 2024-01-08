@@ -35,7 +35,7 @@ object RDDBroadcastJoins {
   // the competition has ended - the leaderboard is known
   val leaderboard = sc.parallelize(1 to 10000000).map((_, random.alphanumeric.take(8).mkString))
   val medalists   = leaderboard.join(prizes)
-  medalists.foreach(println) // 38s for 10M elements!
+  medalists.foreach(println) // 43s for 10M elements!
 
   /*
     We know from SQL joins that the small RDD can be broadcast so that we can avoid the shuffle on the big RDD.
@@ -60,7 +60,7 @@ object RDDBroadcastJoins {
       }
   }
 
-  improvedMedalists.foreach(println) // 2s, blazing fast, no shuffles or anything at all.
+  improvedMedalists.foreach(println) // 3s, blazing fast, no shuffles or anything at all.
 
   def main(args: Array[String]): Unit = {
     Thread.sleep(1000000)
